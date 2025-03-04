@@ -10,7 +10,7 @@ You can set the length of the password and choose to include
 + Symbols
 
 Once you picked from these types of characters and set the length, 
-click on the `Generate Password` button to generate a new password.
+click on the `Generate New Password` button to generate a new password.
 
 Now the password that you can see in the program is also available from your clipboard,
 so you can paste it anywhere to use.
