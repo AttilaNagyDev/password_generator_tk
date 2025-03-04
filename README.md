@@ -3,7 +3,7 @@
 
 ---------------------------------------
 
-You can set the length of the password and choose to include
+You can set the length of the password (8–24 characters) and choose to include:
 + Small letters
 + Capital letters
 + Numbers
