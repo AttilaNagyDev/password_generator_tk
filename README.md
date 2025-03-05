@@ -1,7 +1,6 @@
 # Password Generator
 ###### A hobby project made in Python TKInter
 
----------------------------------------
 
 You can set the length of the password (8–24 characters) and choose to include:
 + Small letters
