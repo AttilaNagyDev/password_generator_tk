@@ -88,7 +88,7 @@ def center_window(window, width, height):
 
 # --------------------------------------------------- UI SETUP ------------------------------------------------------ #
 app_window = Tk()
-app_window.title("Password Generator")
+app_window.title("Password Generator v1.0")
 app_window.config(padx=25, pady=35, bg=GREY, width=420, height=210)
 app_window.resizable(width=False, height=False)
 center_window(app_window, 420, 210)
