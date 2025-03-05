@@ -25,7 +25,7 @@ def generate_password():
     # Check the desired Password Length
     password_length = int(password_length_selector.get())
 
-    # Check which Character Options are chosen
+    # Check which Character Options are selected
     if include_small_letters.get():
         for n in range(password_length):
             small_letter = random.choice(small_letters)
@@ -48,7 +48,6 @@ def generate_password():
     password_list = [random.choice(password_characters) for _ in range(password_length)]
     random.shuffle(password_list)
     password = "".join(password_list)
-
     password_entry.delete(0, END)
     password_entry.insert(0, password)
 
@@ -70,23 +69,19 @@ characters_label = Label(text="Character Options:", font=BOLD_FONT, bg=GREY, fg=
 characters_label.place(x=10, y=10, anchor='w')
 
 include_small_letters = BooleanVar()
-small_letters_checkbutton = Checkbutton(text="Small Letters", onvalue=True, offvalue=False,
-                                        variable=include_small_letters, bg=GREY, fg='white', font=FONT)
+small_letters_checkbutton = Checkbutton(text="Small Letters", variable=include_small_letters, bg=GREY, font=FONT)
 small_letters_checkbutton.place(x=10, y=36, anchor='w')
 
 include_capital_letters = BooleanVar()
-capital_letters_checkbutton = Checkbutton(text="Capital Letters", onvalue=True, offvalue=False,
-                                          variable=include_capital_letters, bg=GREY, fg='white', font=FONT)
+capital_letters_checkbutton = Checkbutton(text="Capital Letters", variable=include_capital_letters, bg=GREY, font=FONT)
 capital_letters_checkbutton.place(x=10, y=60, anchor='w')
 
 include_numbers = BooleanVar()
-numbers_checkbutton = Checkbutton(text="Numbers", onvalue=True, offvalue=False,
-                                  variable=include_numbers, bg=GREY, fg='white', font=FONT)
+numbers_checkbutton = Checkbutton(text="Numbers", variable=include_numbers, bg=GREY, font=FONT)
 numbers_checkbutton.place(x=10, y=84, anchor='w')
 
 include_symbols = BooleanVar()
-symbols_checkbutton = Checkbutton(text="Symbols", onvalue=True, offvalue=False,
-                                  variable=include_symbols, bg=GREY, fg='white', font=FONT)
+symbols_checkbutton = Checkbutton(text="Symbols", variable=include_symbols, bg=GREY, font=FONT)
 symbols_checkbutton.place(x=10, y=108, anchor='w')
 
 # Set default states
@@ -113,6 +108,6 @@ password_entry = Entry(bg="white", fg="black", font=FONT, width=31, highlightbac
 password_entry.place(x=360, y=108, anchor='e')
 
 # Message to the user if a password has been generated
-message = Label(text="Your Password is already available on the clipboard", font=INFO_FONT, bg=GREY, fg='yellow')
+message = Label(text="Your Password is available on the clipboard", font=INFO_FONT, bg=GREY, fg='yellow')
 
 main_window.mainloop()
