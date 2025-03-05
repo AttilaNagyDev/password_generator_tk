@@ -18,6 +18,11 @@ symbols = ['.', '!', '?', '€', '$', '£', '&', '@', '#', '+', '-', '*', '/', '
 
 # ---------------------------------------------- PASSWORD GENERATOR ------------------------------------------------- #
 def generate_password():
+    """Checks the requirements for the password (Length and Character Types) and generates a new password."""
+
+    # Hide previous messages
+    message1.place(x=2000, y=2000, anchor='center')
+    message2.place(x=2000, y=2000, anchor='center')
 
     # Start with an empty list of characters to choose from
     password_characters = []
@@ -25,44 +30,68 @@ def generate_password():
     # Check the desired Password Length
     password_length = int(password_length_selector.get())
 
-    # Check which Character Options are selected
-    if include_small_letters.get():
-        for n in range(password_length):
-            small_letter = random.choice(small_letters)
-            password_characters.append(small_letter)
+    # Check if any Character Options are selected
+    if include_small_letters.get() or include_capital_letters.get() or include_numbers.get() or include_symbols.get():
 
-    if include_capital_letters.get():
-        for n in range(password_length):
-            capital_letter = random.choice(capital_letters)
-            password_characters.append(capital_letter)
+        # Check which Character Options are selected
+        if include_small_letters.get():
+            for n in range(password_length):
+                small_letter = random.choice(small_letters)
+                password_characters.append(small_letter)
 
-    if include_numbers.get():
-        password_characters += numbers
+        if include_capital_letters.get():
+            for n in range(password_length):
+                capital_letter = random.choice(capital_letters)
+                password_characters.append(capital_letter)
 
-    if include_symbols.get():
-        for n in range(password_length):
-            symbol = random.choice(symbols)
-            password_characters.append(symbol)
+        if include_numbers.get():
+            password_characters += numbers
 
-    # Generate a random password from all the chosen character types
-    password_list = [random.choice(password_characters) for _ in range(password_length)]
-    random.shuffle(password_list)
-    password = "".join(password_list)
-    password_entry.delete(0, END)
-    password_entry.insert(0, password)
+        if include_symbols.get():
+            for n in range(password_length):
+                symbol = random.choice(symbols)
+                password_characters.append(symbol)
 
-    # Copy the generated password to clipboard
-    pyperclip.copy(password)
+        # Generate a random password from all the chosen character types
+        password_list = [random.choice(password_characters) for _ in range(password_length)]
+        random.shuffle(password_list)
+        password = "".join(password_list)
+        password_entry.delete(0, END)
+        password_entry.insert(0, password)
 
-    # Display the info message to the user
-    message.place(x=185, y=140, anchor='center')
+        # Copy the generated password to clipboard
+        pyperclip.copy(password)
+
+        # Display the info message to the user
+        message1.place(x=185, y=140, anchor='center')
+
+    else:
+        password_entry.delete(0, END)
+        message2.place(x=185, y=140, anchor='center')
+
+
+# -------------------------------------------- CENTER WINDOW ON SCREEN ----------------------------------------------- #
+def center_window(window, width, height):
+    """Gets screen size and positions program window in the middle of the screen"""
+
+    # Get screen Width and Height
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+
+    # Calculate position X and Y coordinates
+    x = (screen_width/2) - (width/2)
+    y = (screen_height/2) - (height/2)
+
+    # Set window size and its position
+    window.geometry('%dx%d+%d+%d' % (width, height, x, y))
 
 
 # --------------------------------------------------- UI SETUP ------------------------------------------------------ #
-main_window = Tk()
-main_window.title("Password Generator")
-main_window.config(padx=25, pady=35, bg=GREY, width=420, height=210)
-main_window.resizable(width=False, height=False)
+app_window = Tk()
+app_window.title("Password Generator")
+app_window.config(padx=25, pady=35, bg=GREY, width=420, height=210)
+app_window.resizable(width=False, height=False)
+center_window(app_window, 420, 210)
 
 # Character Options
 characters_label = Label(text="Character Options:", font=BOLD_FONT, bg=GREY, fg='white')
@@ -107,7 +136,8 @@ password_label.place(x=360, y=84, anchor='e')
 password_entry = Entry(bg="white", fg="black", font=FONT, width=31, highlightbackground=GREY)
 password_entry.place(x=360, y=108, anchor='e')
 
-# Message to the user if a password has been generated
-message = Label(text="Your Password is available on the clipboard", font=INFO_FONT, bg=GREY, fg='yellow')
+# Messages to the user if a password has been generated
+message1 = Label(text="Your Password is available on the clipboard", font=INFO_FONT, bg=GREY, fg='#71EA4B')
+message2 = Label(text="You must choose at least one Character type", font=INFO_FONT, bg=GREY, fg='#EAC635')
 
-main_window.mainloop()
+app_window.mainloop()
