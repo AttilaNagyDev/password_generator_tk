@@ -35,22 +35,16 @@ def generate_password():
 
         # Check which Character Options are selected
         if include_small_letters.get():
-            for n in range(password_length):
-                small_letter = random.choice(small_letters)
-                password_characters.append(small_letter)
+            password_characters += small_letters
 
         if include_capital_letters.get():
-            for n in range(password_length):
-                capital_letter = random.choice(capital_letters)
-                password_characters.append(capital_letter)
+            password_characters += capital_letters
 
         if include_numbers.get():
             password_characters += numbers
 
         if include_symbols.get():
-            for n in range(password_length):
-                symbol = random.choice(symbols)
-                password_characters.append(symbol)
+            password_characters += symbols
 
         # Generate a random password from all the chosen character types
         password_list = [random.choice(password_characters) for _ in range(password_length)]
