@@ -30,24 +30,54 @@ def generate_password():
     # Check the desired Password Length
     password_length = int(password_length_selector.get())
 
-    # Check if any Character Options are selected
-    if include_small_letters.get() or include_capital_letters.get() or include_numbers.get() or include_symbols.get():
+    # Check how many Character Options are selected
+    character_options = 0
+
+    if include_small_letters.get():
+        character_options += 1
+
+    if include_capital_letters.get():
+        character_options += 1
+
+    if include_numbers.get():
+        character_options += 1
+
+    if include_symbols.get():
+        character_options += 1
+
+    if character_options > 0:
+
+        # Get roughly the same number of characters from each selected category (without another import)
+        chars_per_category = (password_length // character_options) + (1 if password_length % character_options else 0)
 
         # Check which Character Options are selected
         if include_small_letters.get():
-            password_characters += small_letters
+            for small_letter in range(chars_per_category):
+                small_letter = random.choice(small_letters)
+                password_characters.append(small_letter)
 
         if include_capital_letters.get():
-            password_characters += capital_letters
+            for capital_letter in range(chars_per_category):
+                capital_letter = random.choice(capital_letters)
+                password_characters.append(capital_letter)
 
         if include_numbers.get():
-            password_characters += numbers
+            for number in range(chars_per_category):
+                number = random.choice(numbers)
+                password_characters.append(number)
 
         if include_symbols.get():
-            password_characters += symbols
+            for symbol in range(chars_per_category):
+                symbol = random.choice(symbols)
+                password_characters.append(symbol)
 
         # Generate a random password from all the chosen character types
-        password_list = [random.choice(password_characters) for _ in range(password_length)]
+        password_list = []
+        for n in range(password_length):
+            character = random.choice(password_characters)
+            password_list.append(character)
+            password_characters.remove(character)
+
         random.shuffle(password_list)
         password = "".join(password_list)
         password_entry.delete(0, END)
