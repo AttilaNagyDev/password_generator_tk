@@ -5,6 +5,8 @@ Somehow, I've never found the suggestions of password managers in browsers good 
 so I thought I would make something more customizable.
 This little application is simple to use, and it can be useful to quickly generate passwords.
 
+<img src="app_screenshot.png" alt="App Screenshot" height="300">
+
 You can set the length of the password (8–24 characters) and choose to include:
 + Small letters
 + Capital letters
