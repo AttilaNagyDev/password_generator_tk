@@ -1,4 +1,6 @@
 # Password Generator 🔐
+![GitHub stars](https://img.shields.io/github/stars/AttilaNagyDev/blackjack)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ###### A hobby project made in Python with TKInter
 
 Somehow, I've never found the suggestions of password managers in browsers good enough,
