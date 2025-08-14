@@ -7,7 +7,7 @@
 Ever stared at your browser’s password suggestions and thought, “Is this a WiFi password from 2003?”  
 Me too. That’s why I made this: a Python + TKInter app that lets you create passwords that are strong, customizable, and not just a random jumble of sadness.
 
-<img src="https://res.cloudinary.com/dguji3exb/image/upload/v1755203890/qghlrhdeheercemjevfe.png" alt="App Screenshot" height="300" style="align:center; display:block; margin:auto; ">
+<img src="https://res.cloudinary.com/dguji3exb/image/upload/v1755203890/qghlrhdeheercemjevfe.png" alt="App Screenshot" width="532" style="align:center; display:block; margin:auto; ">
 
 ## 🚀 Features
 
@@ -35,8 +35,13 @@ Me too. That’s why I made this: a Python + TKInter app that lets you create pa
 
 If you answered “yes” to any of the above, this app is for you.
 
----
+<br>
+<br>
 
 ##### Thank you for checking in 😃
 
 May your passwords be strong and your coffee stronger! ☕️
+
+---
+
+Made with ❤️ and Python by [Attila Nagy](https://attilanagy.dev)
