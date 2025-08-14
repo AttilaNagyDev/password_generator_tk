@@ -1,6 +1,6 @@
 # Password Generator 🔐  
 ![GitHub stars](https://img.shields.io/github/stars/AttilaNagyDev/password_generator_tk)&nbsp;
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE.txt)
 
 ### Welcome to the Password Generator You Actually Want to Use!
 
